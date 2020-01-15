@@ -1,0 +1,24 @@
+$c-white: #ffffff;
+$c-beige: #f5cfa7;
+
+$c-blue-300: #88bce7;
+$c-blue-400: #116a9f;
+$c-blue-700: #154e7a;
+
+$c-indigo-400: #6610f2;
+
+$c-gray-100: #f8f9fa;
+$c-gray-400: #6c757d;
+$c-gray-600: #3c464c;
+$c-gray-700: #343a40;
+
+$c-red-400: #d32a38;
+$c-red-500: #ad0a19;
+
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
