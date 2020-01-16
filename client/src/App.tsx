@@ -4,17 +4,20 @@ import logo from './logo.png';
 import TileGrid from './components/TileGrid/TileGrid';
 import { IGame } from './interfaces/game';
 import Score from './components/Score/Score';
+import Timer from './components/Timer/Timer';
 
 const App: React.FC = () => {
     const spiesTab = '1';
     const playersTab = '2';
     const [activeTab, setActiveTab] = useState(spiesTab);
     const [game, setGame] = useState({} as IGame);
-    const ws = new WebSocket('ws://localhost:8080');
+    const [timer, setTimer] = useState(false);
+
+    const webSocket = new WebSocket('ws://localhost:8080');
 
     let gameId = '';
 
-    ws.onmessage = (ev: MessageEvent) => {
+    webSocket.onmessage = (ev: MessageEvent) => {
         const event = JSON.parse(ev.data);
         switch (event.type) {
             case 'game':
@@ -36,7 +39,7 @@ const App: React.FC = () => {
         const data = {
             type: 'newgame',
         };
-        ws.send(JSON.stringify(data));
+        webSocket.send(JSON.stringify(data));
     };
 
     const loadGame = () => {
@@ -47,7 +50,7 @@ const App: React.FC = () => {
                 gameId,
             },
         };
-        ws.send(JSON.stringify(data));
+        webSocket.send(JSON.stringify(data));
     };
 
     const onWordClick = (word: string) => {
@@ -58,12 +61,20 @@ const App: React.FC = () => {
                 gameId,
             },
         };
-        ws.send(JSON.stringify(data));
+        webSocket.send(JSON.stringify(data));
+    };
+
+    const startTimer = () => {
+        setTimer(true);
+    };
+
+    const stopTimer = () => {
+        setTimer(false);
     };
 
     const renderTab = () => {
         if (!game.id) {
-            return <span>Create new game</span>;
+            return null;
         }
         const viewAs = activeTab === spiesTab ? 'spies' : 'players';
         game.tiles.forEach(t => (t.viewAs = viewAs));
@@ -87,8 +98,31 @@ const App: React.FC = () => {
         );
     };
 
+    const renderTimer = () => {
+        if (!timer) {
+            return (
+                <div className="timers">
+                    <button className="timer" type="button" onClick={startTimer}>
+                        Start Timer
+                    </button>
+                </div>
+            );
+        }
+
+        return (
+            <div className="timers">
+                <button className="timer" type="button" onClick={stopTimer}>
+                    Stop Timer
+                </button>
+                <Timer />
+            </div>
+        );
+    };
+
     return (
         <div className="app">
+            {renderTimer()}
+
             <div className="buttons">
                 <button type="button" onClick={createNewGame}>
                     New Game

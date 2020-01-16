@@ -58,7 +58,16 @@ $c-inactive: $c-gray-400;
         position: fixed;
         top: 10px;
         left: 10px;
+    }
 
+    .timers {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+    }
+
+    .buttons,
+    .timers {
         button {
             background-color: transparent;
             color: $c-gray-700;
