@@ -3,6 +3,7 @@ import './App.scss';
 import logo from './logo.png';
 import TileGrid from './components/TileGrid/TileGrid';
 import { IGame } from './interfaces/game';
+import Score from './components/Score/Score';
 
 const App: React.FC = () => {
     const spiesTab = '1';
@@ -70,6 +71,18 @@ const App: React.FC = () => {
             <div style={{ width: '100%' }}>
                 <TileGrid tiles={game.tiles} />
                 <span className="game-id">{game.id}</span>
+                <div className="scores">
+                    <Score
+                        color="red"
+                        align="left"
+                        amount={game.tiles.filter(t => t.color === 'red' && t.isGuessed).length}
+                    />
+                    <Score
+                        color="blue"
+                        align="right"
+                        amount={game.tiles.filter(t => t.color === 'blue' && t.isGuessed).length}
+                    />
+                </div>
             </div>
         );
     };
