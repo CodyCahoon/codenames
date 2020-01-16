@@ -25,7 +25,6 @@ const App: React.FC = () => {
                 color: colors[i],
                 word: words[i],
                 viewAs: activeTab === spiesTab ? 'spies' : 'players',
-                isGuessed: Math.random() > 0.5,
             };
         });
 

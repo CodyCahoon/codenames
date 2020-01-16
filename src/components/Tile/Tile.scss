@@ -6,6 +6,14 @@ $font-weight-unguessed: 700;
 $box-shadow-unguessed: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 $box-shadow-guessed: none;
 
+@mixin tileHover() {
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+}
+
 .tile {
     width: calc(100% - 20px);
     height: 60px;
@@ -14,7 +22,7 @@ $box-shadow-guessed: none;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    margin: 10px;
+    margin: 7px 10px;
     flex-grow: 1;
     font-weight: 700;
     padding: 10px 0;
@@ -24,6 +32,7 @@ $box-shadow-guessed: none;
     border-radius: 4px;
     border: 3px solid transparent;
     box-shadow: $box-shadow-unguessed;
+    transition: all 200ms;
 
     &--spies {
         &.tile {
@@ -33,6 +42,7 @@ $box-shadow-guessed: none;
                     color: $c-red-400;
                     font-weight: $font-weight-unguessed;
                     box-shadow: $box-shadow-unguessed;
+                    @include tileHover();
                 }
 
                 &--blue {
@@ -40,6 +50,7 @@ $box-shadow-guessed: none;
                     color: $c-blue-400;
                     font-weight: $font-weight-unguessed;
                     box-shadow: $box-shadow-unguessed;
+                    @include tileHover();
                 }
 
                 &--white {
@@ -47,6 +58,7 @@ $box-shadow-guessed: none;
                     color: shade($c-beige, 10%);
                     font-weight: $font-weight-unguessed;
                     box-shadow: $box-shadow-unguessed;
+                    @include tileHover();
                 }
 
                 &--black {
@@ -54,6 +66,7 @@ $box-shadow-guessed: none;
                     color: $c-gray-700;
                     font-weight: $font-weight-unguessed;
                     box-shadow: $box-shadow-unguessed;
+                    @include tileHover();
                 }
             }
 
@@ -91,6 +104,15 @@ $box-shadow-guessed: none;
 
     &--players {
         &.tile {
+            &--unguessed {
+                &--red,
+                &--blue,
+                &--black,
+                &--white {
+                    @include tileHover();
+                }
+            }
+
             &--guessed {
                 &--red {
                     background-color: tint($c-red-400, 75%);
