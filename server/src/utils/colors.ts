@@ -1,4 +1,4 @@
-import { TileColor } from '../components/Tile/Tile';
+import { TileColor } from '../services/game.service';
 
 export function getColors(): TileColor[] {
     const colors: TileColor[] = [

@@ -1,4 +1,4 @@
-import allWords from './words.json';
+import allWords from './allWords';
 
 export function getWords(): string[] {
     const words = new Set();

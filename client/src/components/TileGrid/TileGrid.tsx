@@ -27,7 +27,13 @@ const TileGrid = (props: ITileGrid) => {
                 return (
                     <div className="tiles__row">
                         {tr.map(t => (
-                            <Tile word={t.word} viewAs={t.viewAs} color={t.color} />
+                            <Tile
+                                word={t.word}
+                                viewAs={t.viewAs}
+                                color={t.color}
+                                onWordClick={t.onWordClick}
+                                isGuessed={t.isGuessed}
+                            />
                         ))}
                     </div>
                 );
