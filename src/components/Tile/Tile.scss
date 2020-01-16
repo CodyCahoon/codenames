@@ -43,8 +43,8 @@ $box-shadow-guessed: none;
                 }
 
                 &--white {
-                    border-color: $c-beige;
-                    color: $c-beige;
+                    border-color: shade($c-beige, 10%);
+                    color: shade($c-beige, 10%);
                     font-weight: $font-weight-unguessed;
                     box-shadow: $box-shadow-unguessed;
                 }
@@ -74,7 +74,7 @@ $box-shadow-guessed: none;
 
                 &--white {
                     background-color: tint($c-beige, 75%);
-                    color: $c-beige;
+                    color: shade($c-beige, 10%);
                     font-weight: $font-weight-guessed;
                     box-shadow: $box-shadow-guessed;
                 }
@@ -108,7 +108,7 @@ $box-shadow-guessed: none;
 
                 &--white {
                     background-color: tint($c-beige, 75%);
-                    color: $c-beige;
+                    color: shade($c-beige, 10%);
                     font-weight: $font-weight-guessed;
                     box-shadow: $box-shadow-guessed;
                 }
