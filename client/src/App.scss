@@ -53,4 +53,29 @@ $c-inactive: $c-gray-400;
     .game-id {
         font-size: 10px;
     }
+
+    .buttons {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+
+        button {
+            background-color: transparent;
+            color: $c-gray-700;
+            font-size: 10px;
+            text-transform: uppercase;
+            border: 1px solid $c-gray-700;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 2px;
+            margin: 2px;
+            transition: all 200ms;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $c-gray-700;
+                color: white;
+            }
+        }
+    }
 }

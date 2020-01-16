@@ -28,17 +28,19 @@ wss.on('connection', (ws: WebSocket) => {
                 break;
 
             case 'wordguessed':
-                sockets.forEach(s => {
-                    s.send(
-                        JSON.stringify({
-                            type: 'game',
-                            payload: gameService.guessWord(
-                                event.payload.gameId,
-                                event.payload.word,
-                            ),
-                        }),
-                    );
-                });
+                sockets
+                    .filter(s => s.readyState === s.OPEN)
+                    .forEach(s => {
+                        s.send(
+                            JSON.stringify({
+                                type: 'game',
+                                payload: gameService.guessWord(
+                                    event.payload.gameId,
+                                    event.payload.word,
+                                ),
+                            }),
+                        );
+                    });
                 break;
 
             case 'loadgame':

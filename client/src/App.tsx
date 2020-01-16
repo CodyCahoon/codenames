@@ -39,7 +39,7 @@ const App: React.FC = () => {
     };
 
     const loadGame = () => {
-        const gameId = window.prompt('Load a game?');
+        const gameId = window.prompt('Enter the game id:');
         const data = {
             type: 'loadgame',
             payload: {
@@ -76,13 +76,15 @@ const App: React.FC = () => {
 
     return (
         <div className="app">
-            <button type="button" onClick={createNewGame}>
-                NEW GAME
-            </button>
+            <div className="buttons">
+                <button type="button" onClick={createNewGame}>
+                    New Game
+                </button>
 
-            <button type="button" onClick={loadGame}>
-                LOAD GAME
-            </button>
+                <button type="button" onClick={loadGame}>
+                    Load Game
+                </button>
+            </div>
 
             <img src={logo} alt="Codenames Logo" />
 
