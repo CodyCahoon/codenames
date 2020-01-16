@@ -2,19 +2,6 @@
 
 .score {
     padding: 40px;
-    > span {
-        display: block;
-        font-size: 11px;
-        text-transform: uppercase;
-        margin: 0;
-        padding: 0;
-    }
-
-    span + span {
-        font-size: 36px;
-        font-weight: 700;
-        margin-top: -6px;
-    }
 
     &--red {
         color: $c-red-400;
@@ -22,5 +9,19 @@
 
     &--blue {
         color: $c-blue-400;
+    }
+
+    &__title {
+        font-size: 11px;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__amount {
+        display: block;
+        font-size: 36px;
+        font-weight: 700;
+        margin-top: -6px;
     }
 }
