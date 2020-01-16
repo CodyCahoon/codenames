@@ -1,0 +1,6 @@
+client/node_modules
+client/yarn-error.log
+
+server/dist
+server/node_modules
+server/yarn-error.log
