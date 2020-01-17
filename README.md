@@ -1,6 +1,10 @@
 # codenames
 
-A game of codenames using the browser and web sockets.
+A game of codenames built using the React, WebSockets and Express
+
+![Spies View](https://github.com/codycahoon/codenames/raw/master/images/screenshot1.png "Spies View")
+
+![Players View](https://github.com/codycahoon/codenames/raw/master/images/screenshot2.png "Players View")
 
 ## Setup
 
