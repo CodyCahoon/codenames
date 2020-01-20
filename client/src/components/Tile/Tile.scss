@@ -22,7 +22,7 @@ $box-shadow-guessed: none;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    margin: 0 10px 7px 0;
+    margin: 0 10px 10px 0;
     flex-grow: 1;
     font-weight: 700;
     padding: 10px 0;
@@ -33,6 +33,7 @@ $box-shadow-guessed: none;
     border: 3px solid transparent;
     box-shadow: $box-shadow-unguessed;
     transition: all 200ms;
+    text-align: center;
 
     &--spies {
         &.tile {

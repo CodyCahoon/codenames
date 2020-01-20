@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Timer.scss';
 
 const Timer = () => {
-    const [timeRemaining, setTimeRemaining] = useState(10000);
+    const [timeRemaining, setTimeRemaining] = useState(60000);
 
     const intervalId = setInterval(() => {
         if (timeRemaining > 0) {

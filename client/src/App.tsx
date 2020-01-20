@@ -87,11 +87,13 @@ const App: React.FC = () => {
                         color="red"
                         align="left"
                         amount={game.tiles.filter(t => t.color === 'red' && t.isGuessed).length}
+                        total={game.tiles.filter(t => t.color === 'red').length}
                     />
                     <Score
                         color="blue"
                         align="right"
                         amount={game.tiles.filter(t => t.color === 'blue' && t.isGuessed).length}
+                        total={game.tiles.filter(t => t.color === 'blue').length}
                     />
                 </div>
             </div>
